@@ -1,6 +1,10 @@
 import React from "react";
 
-export default function Footer(props) {
+type Props = {
+    absolute: boolean
+}
+
+export default function Footer(props: Props) {
     return (
         <>
             <footer

@@ -2,12 +2,8 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import "../styles/tailwind.css";
 
 import type { AppProps } from 'next/app'
-import React, { ReactElement, ReactNode, useEffect, } from "react";
-import { NextPage } from "next";
-
-type NextPageWithLayout = NextPage & {
-  getLayout?: (page: ReactElement) => ReactNode;
-};
+import React, { useEffect, } from "react";
+import NextPageWithLayout from "../layouts/NextPageWithLayout";
 
 type AppPropsWithLayout = AppProps &  {
   Component: NextPageWithLayout;

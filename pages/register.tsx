@@ -1,20 +1,42 @@
+import { NextPage } from "next";
+import { Router, useRouter } from "next/router";
 import React, { ReactElement } from "react";
+import { useForm } from "react-hook-form";
 import Auth from "../layouts/Auth";
+import NextPageWithLayout from "../layouts/NextPageWithLayout";
+import useEffect from 'react';
+
+type FormValues = {
+  teamName: string,
+  teamLeader: string,
+  teamMember1: string,
+  teamMember2: string,
+};
 
 // layout for page
+const Register: NextPageWithLayout = () => {
 
-export default function Register() {
+  const { register, handleSubmit, formState: { errors } } = useForm<FormValues>();
+  const router = useRouter();
 
-  const registerTeam = async event => {
-    event.preventDefault();
+  React.useEffect(() => {
+    register('teamName', {
+      validate: (value) => value.length > 0 || 'The Team Name is required'
+    });
+    register('teamLeader', {
+      validate: (value) => value.length > 0 || 'The Team Leader is required'
+    });
+  }, [register])
+
+  const onSubmit = async (data: FormValues) => {
     console.debug('Submitting my form...');
 
     const res = await fetch('/api/register', {
       body: JSON.stringify({
-        teamName: event.target.teamName.value,
-        teamLeader: event.target.teamLeader.value,
-        teamMember1: event.target.teamMember1.value,
-        teamMember2: event.target.teamMember2.value,
+        teamName: data.teamName,
+        teamLeader: data.teamLeader,
+        teamMember1: data.teamMember1,
+        teamMember2: data.teamMember2,
       }),
       headers: {
         'Content-Type': 'application/json'
@@ -23,6 +45,7 @@ export default function Register() {
     });
 
     const result = await res.json();
+    router.push('/thank-you');
   }
 
   return (
@@ -40,32 +63,48 @@ export default function Register() {
                 <hr className="mt-6 border-b-1 border-blueGray-300" />
               </div>
               <div className="flex-auto px-4 lg:px-10 py-10 pt-0">
-                <form onSubmit={registerTeam} className="myForm">
+                <form onSubmit={handleSubmit(onSubmit)} className="myForm">
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="teamName"
                     >
-                      Team Name
+                      Team Name <span className="text-red-500 text-xs">*</span>
                     </label>
                     <input
-                      type="text" name="teamName" id="teamName"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      type="text" {...register("teamName")} id="teamName"
+                      className={
+                        (errors.teamName
+                          ? "border-red-500 border-2 focus:border-red-500 focus:ring-red-500"
+                          : "border-0"
+                        ) + " px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      }
                       placeholder="Team Name"
                     />
+                    { errors.teamName &&
+                      <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">Team name is required</span>
+                    }
                   </div>
                   <div className="relative w-full mb-3">
                     <label
                       className="block uppercase text-blueGray-600 text-xs font-bold mb-2"
                       htmlFor="teamLeader"
                     >
-                      Team Leader
+                      Team Leader <span className="text-red-500 text-xs">*</span>
                     </label>
                     <input
-                      type="text" name="teamLeader" id="teamLeader"
-                      className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      type="text" {...register("teamLeader")} id="teamLeader"
+                      className={
+                        (errors.teamLeader
+                          ? "border-red-500 border-2 focus:border-red-500 focus:ring-red-500"
+                          : "border-0"
+                        ) + " px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
+                      }
                       placeholder="Team Leader"
                     />
+                    { errors.teamLeader &&
+                      <span className="flex items-center font-medium tracking-wide text-red-500 text-sm mt-1 ml-1">Team leader is required</span>
+                    }
                   </div>
                   <div className="relative w-full mb-3">
                     <label
@@ -75,7 +114,7 @@ export default function Register() {
                       Team Member 1
                     </label>
                     <input
-                      type="text" name="teamMember1" id="teamMember1"
+                      type="text" {...register("teamMember1")} id="teamMember1"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Team Member 1"
                     />
@@ -88,7 +127,7 @@ export default function Register() {
                       Team Member 2
                     </label>
                     <input
-                      type="text" name="teamMember2" id="teamMember2"
+                      type="text" {...register("teamMember2")} id="teamMember2"
                       className="border-0 px-3 py-3 placeholder-blueGray-300 text-blueGray-600 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full ease-linear transition-all duration-150"
                       placeholder="Team Member 2"
                     />
@@ -97,7 +136,7 @@ export default function Register() {
                   <div className="text-center mt-6">
                     <button
                       className="bg-blueGray-800 text-white active:bg-blueGray-600 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full ease-linear transition-all duration-150"
-                      type="Submit"
+                      type="submit"
                     >
                       Create Account
                     </button>
@@ -117,3 +156,5 @@ Register.getLayout = function getLayout(page: ReactElement) {
         <Auth>{page}</Auth>
     )
 }
+
+export default Register;

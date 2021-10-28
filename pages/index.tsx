@@ -41,7 +41,6 @@ const Home: NextPage = () => {
               <div className="mt-12">
                 <Link href="/register">
                   <a
-                    href="/register"
                     className="get-started text-white font-bold px-6 py-4 rounded outline-none focus:outline-none mr-1 mb-1 bg-blueGray-600 active:bg-blueGray-900 uppercase text-sm shadow hover:shadow-lg ease-linear transition-all duration-150" rel="noreferrer"
                   >
                     Register a Team
@@ -53,7 +52,7 @@ const Home: NextPage = () => {
         </div>
       </section>
 
-      <Footer />
+      <Footer absolute />
 
     </>
   )

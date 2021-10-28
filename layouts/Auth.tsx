@@ -1,13 +1,16 @@
-import React from "react";
+import React, { ReactNode } from "react";
 import Footer from "../components/Footers/Footer";
 import IndexNavbar from "../components/Navigation/IndexNavbar";
 
 // components
+interface IProps {
+  children: ReactNode;
+};
 
-export default function Auth({ children }) {
+export default function Auth({ children }: IProps) {
   return (
     <>
-      <IndexNavbar transparent />
+      <IndexNavbar />
       <main>
         <section className="relative w-full h-full py-40 min-h-screen">
           <div

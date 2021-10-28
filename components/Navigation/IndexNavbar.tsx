@@ -1,10 +1,9 @@
 import React from "react";
 import Link from "next/link";
-import IndexDropdown from '../Dropdowns/IndexDropdown';
 // components
 
 
-export default function IndexNavbar(props) {
+export default function IndexNavbar() {
   const [navbarOpen, setNavbarOpen] = React.useState(false);
   return (
     <>
@@ -12,10 +11,7 @@ export default function IndexNavbar(props) {
         <div className="container px-4 mx-auto flex flex-wrap items-center justify-between">
           <div className="w-full relative flex justify-between lg:w-auto lg:static lg:block lg:justify-start">
             <Link href="/">
-              <a
-                className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase"
-                href="/"
-              >
+              <a className="text-blueGray-700 text-sm font-bold leading-relaxed inline-block mr-4 py-2 whitespace-nowrap uppercase">
                 Sitecore/Opti Next.JS Hackathon 2021
               </a>
             </Link>
@@ -36,13 +32,14 @@ export default function IndexNavbar(props) {
           >
             <ul className="flex flex-col lg:flex-row list-none mr-auto">
               <li className="flex items-center">
-                <a
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="/hackathon-rules"
-                >
-                  <i className="text-blueGray-400 far fa-flag text-lg leading-lg mr-2" />{" "}
-                  Rules
-                </a>
+                <Link href="/rules">
+                  <a
+                    className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  >
+                    <i className="text-blueGray-400 far fa-flag text-lg leading-lg mr-2" />{" "}
+                    Rules
+                  </a>
+                </Link>
               </li>
               <li className="flex items-center">
                 <a
@@ -52,11 +49,6 @@ export default function IndexNavbar(props) {
                   <i className="text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2" />{" "}
                   Theme Docs
                 </a>
-              </li>
-            </ul>
-            <ul className="flex flex-col lg:flex-row list-none lg:ml-auto">
-              <li className="flex items-center">
-                <IndexDropdown />
               </li>
             </ul>
           </div>
