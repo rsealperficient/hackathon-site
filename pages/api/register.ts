@@ -8,10 +8,10 @@ type Data = {
 }
 
 type zapierResponse = {
-    id: string,
-    request_id: string,
-    attempt: string,
-    status: string
+  id: string,
+  request_id: string,
+  attempt: string,
+  status: string
 }
 
 export default async function handler(
@@ -19,20 +19,22 @@ export default async function handler(
   res: NextApiResponse<zapierResponse>
 ) {
 
-    const saveMessage = await fetch('https://hooks.zapier.com/hooks/catch/11179734/bh8wyuf/', {
-        body: JSON.stringify({
-          "Team Name": req.body.teamName,
-          "Team Leader": req.body.teamLeader,
-          "Team Member1": req.body.teamMember1,
-          "Team Member2": req.body.teamMember2
-        }),
-        headers: {
-            'Content-Type': 'application/json'
-        },
-        method: 'POST'
-        });
+  const webhookUrl = process.env.EMAIL_WEBHOOK ?? '';
 
-    const result = await saveMessage.json();
+  const saveMessage = await fetch(webhookUrl, {
+    body: JSON.stringify({
+      "Team Name": req.body.teamName,
+      "Team Leader": req.body.teamLeader,
+      "Team Member1": req.body.teamMember1,
+      "Team Member2": req.body.teamMember2
+    }),
+    headers: {
+      'Content-Type': 'application/json'
+    },
+    method: 'POST'
+  });
 
-    res.status(200).json(result);
+  const result = await saveMessage.json();
+
+  res.status(200).json(result);
 }
