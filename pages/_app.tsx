@@ -4,10 +4,19 @@ import "../styles/tailwind.css";
 import type { AppProps } from 'next/app'
 import React, { useEffect, } from "react";
 import NextPageWithLayout from "../layouts/NextPageWithLayout";
+import { Router } from "next/router";
+
+import { createViewEvent } from "../components/Boxever/BoxeverEngine";
 
 type AppPropsWithLayout = AppProps &  {
   Component: NextPageWithLayout;
 };
+
+Router.events.on('routeChangeStart', url => {
+  console.log(`Loading: ${url}`);
+  console.log(`Rendering page ${window.location.href}`);
+  createViewEvent(window.location.href);
+});
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {
   useEffect(() => {
