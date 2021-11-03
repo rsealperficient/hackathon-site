@@ -151,7 +151,10 @@ function sendEvent(page, eventType, email, firstname, lastname) {
       'pos': 'tworichardsmusicstore',
       'email': email,
       'firstname': firstname,
-      'lastname': lastname
+      'lastname': lastname,
+      'extensions': {
+        'propensityToPurchase': 1
+      }
     };
     //Add UTM params
     viewEvent = Boxever.addUTMParams(viewEvent);
