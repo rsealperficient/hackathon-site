@@ -9,6 +9,24 @@ export function identifyUser(page, email, firstname, lastname) {
   sendEvent(page, 'IDENTITY', email, firstname, lastname);
 }
 
+export function runPersonalization() {
+  var callFlowsContext = {
+    context: {
+      "channel": "WEB",   // update before using. e.g. “WEB”
+      "language": "EN",   // update before using. e.g. “en”
+      "currencyCode": "EUR",  // update before using. e.g. “EUR”
+      "pointOfSale": Boxever.pointOfSale, // or value from your data layer
+      "browserId": Boxever.getID(),
+      "clientKey": _boxever_settings.client_key,   
+      "friendlyId": "rsexperience"
+    }
+  };
+  
+  Boxever.callFlows(callFlowsContext, function(response) {
+    // use the response object
+  }, 'json');
+}
+
 export function createAddEvent(page, product) {
   console.debug(` -> Boxever.createAddEvent(${page})`);
   _boxeverq.push(function () {

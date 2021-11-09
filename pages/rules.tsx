@@ -46,7 +46,8 @@ const Rules: NextPageWithLayout = () => {
                                     </p>
                                     <h2 className="mb-4 text-xl text-blueGray-700">Entry Requirements</h2>
                                     <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
-                                        
+                                        All teams are required to submit the following as part of their entry submission no later than the end of the Hackathon on Saturday, December 4th
+                                        at 12:30pm in the timezone local to your team. 
                                     </p>
                                 </div>
                             </div>

@@ -15,11 +15,6 @@ class MyDocument extends Document {
         <body>
           <Main />
           <NextScript />
-          <Boxever
-            clientKey="psfu6uh05hsr9c34rptlr06dn864cqrx"
-            apiTargetEndPoint="https://api.boxever.com/v1.2"
-            cookieDomain="localhost"
-          />
         </body>
       </Html>
     );

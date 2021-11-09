@@ -15,7 +15,7 @@ type AppPropsWithLayout = AppProps &  {
 Router.events.on('routeChangeStart', url => {
   console.log(`Loading: ${url}`);
   console.log(`Rendering page ${window.location.href}`);
-  createViewEvent(window.location.href);
+  //createViewEvent(window.location.href);
 });
 
 function MyApp({ Component, pageProps }: AppPropsWithLayout) {

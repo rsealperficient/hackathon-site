@@ -42,13 +42,34 @@ export default function IndexNavbar() {
                 </Link>
               </li>
               <li className="flex items-center">
-                <a
-                  className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
-                  href="https://www.creative-tim.com/learning-lab/tailwind/nextjs/overview/notus?ref=nnjs-index-navbar"
-                >
-                  <i className="text-blueGray-400 far fa-file-alt text-lg leading-lg mr-2" />{" "}
-                  Theme Docs
-                </a>
+                <Link href="/faq">
+                  <a
+                    className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  >
+                    <i className="text-blueGray-400 far fa-question-circle text-lg leading-lg mr-2" />{" "}
+                    FAQ
+                  </a>
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <Link href="/register">
+                  <a
+                    className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  >
+                    <i className="text-blueGray-400 far fa-edit text-lg leading-lg mr-2" />{" "}
+                    Register
+                  </a>
+                </Link>
+              </li>
+              <li className="flex items-center">
+                <Link href="/teams">
+                  <a
+                    className="hover:text-blueGray-500 text-blueGray-700 px-3 py-4 lg:py-2 flex items-center text-xs uppercase font-bold"
+                  >
+                    <i className="text-blueGray-400 far fa-user text-lg leading-lg mr-2" />{" "}
+                    Teams
+                  </a>
+                </Link>
               </li>
             </ul>
           </div>

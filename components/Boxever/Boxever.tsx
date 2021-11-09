@@ -15,7 +15,8 @@ export default function Boxever(props: boxeverProps) {
             target: '${props.apiTargetEndPoint}',
             cookie_domain: '${props.cookieDomain}',
             api_token: 'uz9h803ertuvxcb9jh2cu05t87at85nl',
-            web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net'
+            web_flow_target: 'https://d35vb5cccm4xzp.cloudfront.net',
+            pointOfSale: 'tworichardsmusicstore'
         };
         (function() {
             var s = document.createElement('script'); s.type = 'text/javascript'; s.async = true;  
