@@ -13,7 +13,7 @@ export async function getTeamsList(): Promise<Team[]> {
         const target = ['https://www.googleapis.com/auth/spreadsheets.readonly'];
         const jwt = new google.auth.JWT(
             process.env.GOOGLE_SHEETS_CLIENT_EMAIL,
-            null,
+            '',
             (process.env.GOOGLE_SHEETS_PRIVATE_KEY || '').replace(/\\n/g, '\n'),
             target
         );

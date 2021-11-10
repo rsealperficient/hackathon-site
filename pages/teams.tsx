@@ -6,7 +6,7 @@ import Head from 'next/head';
 import Landing from '../layouts/Landing';
 import TeamCard from '../components/Cards/TeamCard';
 import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
-import { getTeamsList, Team } from '../api/sheets';
+import { getTeamsList, Team } from './api/sheets';
 
 interface IProps {
     teams: Team[]
