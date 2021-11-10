@@ -4,6 +4,7 @@ import NextPageWithLayout from '../layouts/NextPageWithLayout';
 import Image from 'next/image';
 import Head from 'next/head';
 import Landing from '../layouts/Landing';
+import TeamCard from '../components/Cards/TeamCard';
 
 const Teams: NextPageWithLayout = () => {
     return (
@@ -14,13 +15,36 @@ const Teams: NextPageWithLayout = () => {
             </Head>
 
             <div className="container mx-auto px-4 h-full">
-                <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
-                    <div className="px-6">
-                        <div className="text-center mt-12">
-                            <h1 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
-                                Sitecore/Opti Hackathon Registered Teams
-                            </h1>
-                        </div>
+                <div className="relative flex flex-col min-w-0 break-words w-full mb-14 rounded-lg mt-16">
+                    <div className="py-10">
+                        <h1 className="text-4xl text-center text-gray-700 dark:text-gray-50 font-extrabold">
+                            Sitecore/Opti Hackathon Registered Teams
+                        </h1>
+                    </div>
+                </div>
+                <div className="pb-10 dark:bg-gray-600">
+                    <div className="sm:px-4 pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
+                        <TeamCard header="GoHorse">
+                            <ul>
+                                <li>Diego Moretto</li>
+                                <li>Roberto Barbedo</li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </TeamCard>
+                        <TeamCard header="Mike.js">
+                            <ul>
+                                <li>Mike Congdon</li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </TeamCard>
+                        <TeamCard header="foobar">
+                            <ul>
+                                <li>Andy Merhaut</li>
+                                <li>&nbsp;</li>
+                                <li>&nbsp;</li>
+                            </ul>
+                        </TeamCard>
                     </div>
                 </div>
             </div>

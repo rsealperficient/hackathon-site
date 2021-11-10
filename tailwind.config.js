@@ -2,9 +2,14 @@ const plugin = require("tailwindcss/plugin");
 const colors = require("tailwindcss/colors");
 
 module.exports = {
+  mode: 'jit',
   purge: {
     enabled: true,
-    content: ["./**/*.html", "./*.html", "./**/*.js", "./*.js", "./**/*.ts", "./*.ts", "./**/*.tsx", "./*.tsx"],
+    content: [
+      "./pages/**/*.js", "./components/**/*.js", "./layouts/**/*.js", "./*.js", 
+      "./pages/**/*.ts", "./components/**/*.ts", "./layouts/**/*.ts", "./*.ts", 
+      "./pages/**/*.tsx", "./components/**/*.tsx", "./layouts/**/*.tsx", "./*.tsx"
+    ],
     options: {
       safelist: [],
     },
