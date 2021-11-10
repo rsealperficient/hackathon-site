@@ -5,8 +5,14 @@ import Image from 'next/image';
 import Head from 'next/head';
 import Landing from '../layouts/Landing';
 import TeamCard from '../components/Cards/TeamCard';
+import { GetStaticProps, InferGetStaticPropsType, NextPage } from 'next';
+import { getTeamsList, Team } from '../api/sheets';
 
-const Teams: NextPageWithLayout = () => {
+interface IProps {
+    teams: Team[]
+};
+
+const Teams = (props: IProps) => {
     return (
         <>
             <Head>
@@ -24,33 +30,34 @@ const Teams: NextPageWithLayout = () => {
                 </div>
                 <div className="pb-10 dark:bg-gray-600">
                     <div className="sm:px-4 pb-20 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-10">
-                        <TeamCard header="GoHorse">
-                            <ul>
-                                <li>Diego Moretto</li>
-                                <li>Roberto Barbedo</li>
-                                <li>&nbsp;</li>
-                            </ul>
-                        </TeamCard>
-                        <TeamCard header="Mike.js">
-                            <ul>
-                                <li>Mike Congdon</li>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
-                            </ul>
-                        </TeamCard>
-                        <TeamCard header="foobar">
-                            <ul>
-                                <li>Andy Merhaut</li>
-                                <li>&nbsp;</li>
-                                <li>&nbsp;</li>
-                            </ul>
-                        </TeamCard>
+                        {props.teams?.length > 0
+                            ? props.teams.map((team: any) =>
+                                <>
+                                    <TeamCard key={team} header={team.teamName}>
+                                        <ul>
+                                            <li>{team.teamLeader}</li>
+                                            <li dangerouslySetInnerHTML={{ __html: team.teamMember1 }}></li>
+                                            <li dangerouslySetInnerHTML={{ __html: team.teamMember2 }}></li>
+                                        </ul>
+                                    </TeamCard>
+                                </>
+                            ) : null}
                     </div>
                 </div>
             </div>
         </>
     );
 };
+
+export const getStaticProps: GetStaticProps = async (context) => {
+    const teams = await getTeamsList();
+    return {
+        props: {
+            teams: teams
+        },
+        revalidate: 1,
+    };
+}
 
 Teams.getLayout = function getLayout(page: ReactElement) {
     return (
