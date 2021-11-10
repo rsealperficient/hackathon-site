@@ -14,7 +14,7 @@ const Faq: NextPageWithLayout = () => {
             </Head>
             <div className="container mx-auto px-4 h-full">
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
-                    <div className="py-20 dark:bg-gray-600">
+                    <div className="py-20 dark:bg-gray-600 rounded-lg">
                         <h1 className="text-4xl text-center text-gray-700 dark:text-gray-50 font-extrabold">Frequently Asked Questions</h1>
 
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:mx-40 mx-4 mt-20">
@@ -47,7 +47,7 @@ const Faq: NextPageWithLayout = () => {
                         </div>
 
                         <div className="grid grid-cols-1 md:grid-cols-1 gap-10 md:mx-40 mx-4 mt-20">
-                            <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                            <p className="mb-4 text-lg leading-relaxed text-white">
                                 † Perficient T&M Expense policy applies ($25 maximum, itemized receipt)
                             </p>
                         </div>

@@ -15,9 +15,8 @@ const Home: NextPageWithLayout = () => {
       </Head>
 
       <div className="container mx-auto px-4 h-3/4">
-        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
+        <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-4 shadow-xl rounded-lg mt-16">
           <div className="px-6">
-
               <section className="header relative pt-16 flex h-screen max-h-860-px">
                 <div className="container mx-auto flex flex-wrap">
                   <div className="w-full md:w-12/12 lg:w-8/12 xl:w-8/12 px-4">

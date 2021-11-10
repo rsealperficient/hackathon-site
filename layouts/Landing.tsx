@@ -12,7 +12,7 @@ export default function Landing({ children }: IProps) {
     <>
       <IndexNavbar />
       <main>
-        <section className="relative w-full h-full py-20 min-h-screen">
+        <section className="relative w-full h-full pt-16 pb-40 min-h-screen">
           <div
             className="absolute top-0 w-full h-full bg-blueGray-800 bg-no-repeat bg-full"
             style={{
