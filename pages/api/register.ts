@@ -7,16 +7,9 @@ type Data = {
   teamMember2: string
 }
 
-type zapierResponse = {
-  id: string,
-  request_id: string,
-  attempt: string,
-  status: string
-}
-
 export default async function handler(
   req: NextApiRequest,
-  res: NextApiResponse<zapierResponse>
+  res: NextApiResponse<string>
 ) {
 
   const webhookUrl = process.env.EMAIL_WEBHOOK ?? '';
@@ -34,7 +27,7 @@ export default async function handler(
     method: 'POST'
   });
 
-  const result = await saveMessage.json();
+  const result = await saveMessage.body;
 
-  res.status(200).json(result);
+  res.status(200).json(JSON.stringify({ "result": result }));
 }

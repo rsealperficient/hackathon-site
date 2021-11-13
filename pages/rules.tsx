@@ -17,38 +17,45 @@ const Rules: NextPageWithLayout = () => {
                 <div className="relative flex flex-col min-w-0 break-words bg-white w-full mb-6 shadow-xl rounded-lg mt-16">
                     <div className="px-6">
                         <div className="text-center mt-12">
-                            <h1 className="text-xl font-semibold leading-normal mb-2 text-blueGray-700 mb-2">
+                            <h1 className="text-xl font-semibold leading-normal mb-2 mb-2">
                                 Sitecore/Opti Hackathon Rules
                             </h1>
                         </div>
-                        <div className="mt-10 py-10 border-t border-blueGray-200 text-left">
+                        <div className="mt-10 py-10 border-t border-blueGray-200 text-left text-blueGray-700">
                             <div className="flex flex-wrap justify-center">
                                 <div className="w-full lg:w-12/12 px-4">
-                                    <h2 className="mb-4 text-xl text-blueGray-700">Rules</h2>
-                                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                    <h2 className="mb-4 text-xl font-bold">Rules</h2>
+                                    <p className="mb-2 leading-relaxed">
                                         Teams must be signed up by <strong>Dec 1st 2021</strong> to participate in the Hackathon. A team can be a maximum of 3 people, 
                                         but you can have 1 or 2 in your team too.
                                     </p>
-                                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                    <p className="mb-2 leading-relaxed">
                                         Each team will have 24 hours that will start at <strong>December 3rd at 12:30pm <em>in the timezone local to you.</em></strong>
                                         and will <strong>December 4th, 12:30pm <em>in the timezone local to you.</em></strong> finish For 
                                         teams that span timezones, the deadline will apply to the final timezone for that team member, team members in other 
                                         timezones must have their work committed within the 24 hour period.
                                     </p>
-                                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                    <p className="mb-2 leading-relaxed">
                                         The goal will be to show off your skills and build something great with NextJS as your focus. You can use any other 
                                         technology available to support your project, headless CMS, commerce etc... the only requirement is that the main part 
                                         of the application is built using NextJS.
                                     </p>
-                                    <h2 className="mb-4 text-xl text-blueGray-700">Prizes</h2>
-                                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                    <h2 className="mb-4 text-xl font-bold">Prizes</h2>
+                                    <p className="mb-2 leading-relaxed">
                                         TBD
                                     </p>
-                                    <h2 className="mb-4 text-xl text-blueGray-700">Entry Requirements</h2>
-                                    <p className="mb-4 text-lg leading-relaxed text-blueGray-700">
+                                    <h2 className="mb-3 text-xl font-bold">Entry Requirements</h2>
+                                    <p className="mb-2 leading-relaxed">
                                         All teams are required to submit the following as part of their entry submission no later than the end of the Hackathon on Saturday, December 4th
                                         at 12:30pm in the timezone local to your team. 
                                     </p>
+                                    <h3 className="mb-3 text-lg font-bold">Framework</h3>
+                                    <p className="mb-2 leading-relaxed">
+                                        The only requirement is that the main application must use Next.JS/React for the delivery of the site. If you want
+                                        to use a headless CMS, you are open to choose, but it must be accessible by the judges. You can use docker or just run 
+                                        locally, you can use Sitecore or non-Sitecore or [insert other creative approach here].
+                                    </p>
+                                    <p className="mb-2 leading-relaxed"></p>                                    <p className="mb-4 text-lg leading-relaxed"></p>
                                 </div>
                             </div>
                         </div>
